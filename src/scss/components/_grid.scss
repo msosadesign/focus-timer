@@ -1,0 +1,112 @@
+body {
+    min-height: 100vh;
+    background-color: $darkSurface;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 268px;
+    color: white;
+    text-align: center;
+
+    @include mq($break-lg) {
+        max-width: none;
+        display: grid;
+        grid-template-columns: 260px auto;
+        grid-template-rows: auto auto;
+        gap: 16px 24px;
+        grid-template-areas:
+            "time time"
+            "progress quote";
+    }
+}
+
+.time {
+    grid-area: time;
+}
+.progress {
+    grid-area: progress;
+}
+.quote {
+    grid-area: quote;
+    text-align: left;
+}
+
+q,
+.boldBody {
+    text-align: left;
+    width: 100%;
+}
+
+.App-logo {
+    width: 238px;
+    max-height: 238px;
+    pointer-events: none;
+}
+
+.btn {
+    cursor: pointer;
+    width: 100%;
+    @include mq($break-lg) {
+        width: auto;
+    }
+}
+
+.fab {
+    width: auto;
+}
+
+.timeCounter {
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+    align-items: flex-end;
+    @include mq($break-lg) {
+        flex-direction: row;
+    }
+}
+
+.landing {
+    padding: 16px;
+    padding-top: 93px;
+    color: $lightSurface;
+    height: 100vh;
+    @include mq($break-sm) {
+        text-align: center;
+        & > p {
+            max-width: 264px;
+        }
+    }
+
+    & > p {
+        @include mq($break-md) {
+            max-width: 338px;
+        }
+        @include mq($break-lg) {
+            max-width: 408px;
+        }
+    }
+}
+
+.landing-fabs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    gap: 24px;
+    bottom: 16px;
+    right: 16px;
+}
+
+.settings-icon {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}

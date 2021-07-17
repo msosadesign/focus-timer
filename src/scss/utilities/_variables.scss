@@ -1,0 +1,28 @@
+// Fonts
+$font-stack: "Dosis", sans-serif;
+
+// Colors
+$colorPrimary: #6e44ff;
+$darkSurface: #403f4c;
+$mediumSurface: #d9dbf1;
+$lightSurface: #ffffff;
+$lightPrimary: #ab92ff;
+
+$primaryOverlay-pressed: rgba(
+    $color: $colorPrimary,
+    $alpha: 0.35,
+);
+$primaryOverlay-hover: rgba(
+    $color: $colorPrimary,
+    $alpha: 0.12,
+);
+
+$fabElevation: 0px 2px 4px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14);
+
+// Breakpoints
+$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1200px;

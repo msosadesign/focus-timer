@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&display=swap");
+
+body {
+    font-family: $font-stack;
+}
+
+.h1 {
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+.h2 {
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 58px;
+    letter-spacing: 0em;
+}
+
+.buttonText {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.body {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0.01em;
+}
+
+.boldBody {
+    font-family: Dosis;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px;
+    letter-spacing: 0.005em;
+}
+
+.caption {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.4000000059604645px;
+}
+
+.extraTime {
+    @extend .body;
+    color: $lightSurface;
+    background-color: $colorPrimary;
+    padding: 4px;
+    @include mq($break-lg) {
+        margin-bottom: 16px;
+        margin-left: 16px;
+    }
+}

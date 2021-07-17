@@ -1,0 +1,49 @@
+.btn-contained-effects {
+    &:active {
+        background-color: $lightPrimary;
+    }
+}
+
+.btn-outlined-effects {
+    &:hover {
+        background-color: $primaryOverlay-hover;
+    }
+    &:active {
+        background-color: $primaryOverlay-pressed;
+    }
+}
+
+.btn {
+    @extend .buttonText;
+    @extend .btn-contained-effects;
+    color: $lightSurface;
+    height: 48px;
+    border-radius: 3px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: $colorPrimary;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.btn-outlined {
+    @extend .btn;
+    @extend .btn-outlined-effects;
+    background-color: transparent;
+    border: 2px solid $colorPrimary;
+}
+
+.fab {
+    @extend .btn;
+    border-radius: 30px;
+    box-shadow: $fabElevation;
+}
+
+.fab-secondary {
+    @extend .fab;
+    @extend .btn-outlined-effects;
+    background-color: transparent;
+    border: 2px solid $colorPrimary;
+    height: 40px;
+    box-shadow: none;
+}
