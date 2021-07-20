@@ -72,24 +72,37 @@ q,
 }
 
 .landing {
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100vw - 32px);
+    height: calc(100vh - 109px);
     padding: 16px;
     padding-top: 93px;
     color: $lightSurface;
-    height: 100vh;
-    @include mq($break-sm) {
-        text-align: center;
-        & > p {
-            max-width: 264px;
-        }
-    }
+    // @include mq($break-sm) {
+    //     text-align: center;
+    //     & > p {
+    //         max-width: 264px;
+    //     }
+    // }
 
-    & > p {
-        @include mq($break-md) {
-            max-width: 338px;
-        }
-        @include mq($break-lg) {
-            max-width: 408px;
-        }
+    // & > p {
+    //     @include mq($break-md) {
+    //         max-width: 338px;
+    //     }
+    //     @include mq($break-lg) {
+    //         max-width: 408px;
+    //     }
+    // }
+
+    @include mq($break-xl) {
+        padding: 0;
+        margin-top: -100px;
+        justify-content: center;
+        width: 100vw;
+        height: calc(100vh + 100px);
     }
 }
 
@@ -101,6 +114,13 @@ q,
     gap: 24px;
     bottom: 16px;
     right: 16px;
+    @include mq($break-xl) {
+        flex-direction: row;
+        position: relative;
+        margin-top: 62px;
+        bottom: 0;
+        right: 0;
+    }
 }
 
 .settings-icon {
