@@ -1,8 +1,10 @@
-
-
-.landing {
+body {
     background-image: url(../../images/background.jpg);
     background-position: center;
     background-size: cover;
     height: 100vh;
+}
+
+.landing {
+    background-color: rgba(0, 0, 0, 0.7);
 }

@@ -78,24 +78,14 @@ q,
     align-items: center;
     width: calc(100vw - 32px);
     height: calc(100vh - 109px);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
     padding: 16px;
     padding-top: 93px;
     color: $lightSurface;
-    // @include mq($break-sm) {
-    //     text-align: center;
-    //     & > p {
-    //         max-width: 264px;
-    //     }
-    // }
-
-    // & > p {
-    //     @include mq($break-md) {
-    //         max-width: 338px;
-    //     }
-    //     @include mq($break-lg) {
-    //         max-width: 408px;
-    //     }
-    // }
 
     @include mq($break-xl) {
         padding: 0;
@@ -114,6 +104,13 @@ q,
     gap: 24px;
     bottom: 16px;
     right: 16px;
+    @include mq($break-md) {
+        bottom: 32px;
+        right: 32px;
+    }
+    @include mq($break-lg) {
+        right: 76px;
+    }
     @include mq($break-xl) {
         flex-direction: row;
         position: relative;
@@ -129,4 +126,27 @@ q,
     position: absolute;
     top: 16px;
     right: 16px;
+    @include mq($break-md) {
+        right: 76px;
+        top: 32px;
+    }
+    @include mq($break-lg) {
+        right: 76px;
+        top: 32px;
+    }
+    @include mq($break-xl) {
+        right: 15%;
+        top: 132px;
+    }
+}
+
+::-moz-selection {
+    /* Code for Firefox */
+    color: $lightSurface;
+    background: $colorPrimary;
+}
+
+::selection {
+    color: $lightSurface;
+    background: $colorPrimary;
 }
