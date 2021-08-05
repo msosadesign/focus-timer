@@ -16,16 +16,17 @@ class Timer extends Component {
                         Do what you can, with what you have, where you are.
                     </q>
                     <p className="boldBody">– Theodore Roosevelt.</p>
+
                     <button
-                        className="btn"
+                        className="btn timer-btn"
                     >
                         Start Timer
                     </button>
-                    <button
-                        className="btn btn-outlined"
+                    {/* <button
+                        className="btn btn-outlined timer-btn"
                     >
                         Stop Timer
-                    </button>
+                    </button> */}
                 </div>
             </div>
         )

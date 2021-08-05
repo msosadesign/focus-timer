@@ -1,0 +1,22 @@
+.time-field {
+    @extend .buttonText;
+    color: $darkSurface;
+    height: 56px;
+    width: 56px;
+    border: 2px solid $mediumSurface;
+    outline: none;
+    border-radius: 3px;
+    text-align: center;
+    transition: 100ms ease-in-out border;
+    &:focus {
+        border: 2px solid $colorPrimary;
+    }
+}
+
+.radio-button {
+    display: flex;
+    align-items: center;
+    & input[type="radio"] {
+        margin-right: 8px;
+    }
+}

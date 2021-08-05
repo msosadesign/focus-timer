@@ -5,12 +5,12 @@ import Settings from './components/settings'
 
 function App() {
   return (
-    <body>
+    <main>
 
       {/* <Timer /> */}
       {/* <LandingPage /> */}
       <Settings />
-    </body>
+    </main>
   );
 }
 

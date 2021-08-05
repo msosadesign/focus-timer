@@ -33,6 +33,12 @@
     border: 2px solid $colorPrimary;
 }
 
+.btn-text {
+    @extend .btn-outlined;
+    border: none;
+    color: $colorPrimary;
+}
+
 .fab {
     @extend .btn;
     border-radius: 30px;

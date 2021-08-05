@@ -49,7 +49,7 @@ q,
     pointer-events: none;
 }
 
-.btn {
+.timer-btn {
     cursor: pointer;
     width: 100%;
     @include mq($break-lg) {
@@ -73,11 +73,10 @@ q,
 
 .landing {
     display: flex;
-    width: max-content;
     flex-direction: column;
     align-items: center;
-    width: calc(100vw - 32px);
-    height: calc(100vh - 109px);
+    width: 100vw; //calc(100vw - 32px)
+    height: 100vh; //calc(100vh - 109px)
 
     position: absolute;
     top: 0;
@@ -149,4 +148,39 @@ q,
 ::selection {
     color: $lightSurface;
     background: $colorPrimary;
+}
+
+fieldset {
+    border: none;
+}
+
+.settings {
+    background-color: $lightSurface;
+    color: $darkSurface;
+    padding: 19px 14px 4px;
+    border-radius: 4px;
+    box-shadow: $fabElevation;
+    & .time-selectors {
+        display: flex;
+        align-items: flex-end;
+    }
+    & label {
+        display: inline-block;
+    }
+    & .time-divider {
+        @extend .buttonText;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+}
+
+.vertical-divider {
+    height: 56px;
+    margin-left: 29px;
+    margin-right: 29px;
+    border-left: 1px solid $mediumSurface;
+}
+
+.dialog-buttons {
+    text-align: end;
 }
