@@ -4,7 +4,7 @@ class Settings extends React.Component {
     render() {
         return (
             <div className="settings">
-                <h1 className="body">Settings</h1>
+                <h1 className="subtitle">Settings</h1>
                 <form>
 
                     <fieldset className="time-selectors">

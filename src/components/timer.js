@@ -12,7 +12,7 @@ class Timer extends Component {
                 <img src={logo} className="App-logo progress" alt="logo" /><br></br>
 
                 <div className="quote">
-                    <q className="body">
+                    <q className="subtitle">
                         Do what you can, with what you have, where you are.
                     </q>
                     <p className="boldBody">– Theodore Roosevelt.</p>
