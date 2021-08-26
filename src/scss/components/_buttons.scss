@@ -1,5 +1,9 @@
 .btn-contained-effects {
+    &:hover {
+        box-shadow: $elevation-04;
+    }
     &:active {
+        box-shadow: $elevation-08;
         background-color: $lightPrimary;
     }
 }
@@ -23,7 +27,7 @@
     padding-right: 16px;
     background-color: $colorPrimary;
     border: none;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 .btn-outlined {
@@ -42,7 +46,7 @@
 .fab {
     @extend .btn;
     border-radius: 30px;
-    box-shadow: $fabElevation;
+    box-shadow: $elevation-06;
     @include mq($break-xl) {
         border-radius: 3px;
         box-shadow: none;
