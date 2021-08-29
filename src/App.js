@@ -1,15 +1,15 @@
 import './scss/styles.scss';
-import Timer from './components/timer'
+// import Timer from './components/timer'
 // import LandingPage from './components/landing';
-// import Settings from './components/settings'
+import Settings from './components/settings'
 
 function App() {
   return (
     <main>
 
-      <Timer />
+      {/* <Timer /> */}
       {/* <LandingPage /> */}
-      {/* <Settings /> */}
+      <Settings />
     </main>
   );
 }
