@@ -4,22 +4,25 @@
     }
     &:active {
         box-shadow: $elevation-08;
-        background-color: $lightPrimary;
+        background-color: $primaryPressed;
     }
 }
 
 .btn-outlined-effects {
     &:hover {
+        box-shadow: none;
         background-color: $primaryOverlay-hover;
     }
     &:active {
-        background-color: $primaryOverlay-pressed;
+        box-shadow: none;
+        background-color: $primaryOverlay-pressed
     }
 }
 
 .btn {
     @extend .buttonText;
     @extend .btn-contained-effects;
+    cursor: pointer;
     color: $lightSurface;
     height: 48px;
     border-radius: 3px;
@@ -47,6 +50,7 @@
     @extend .btn-outlined-effects;
     background-color: transparent;
     border: 2px solid $colorPrimary;
+    color: $colorPrimary;
 }
 
 .btn-text {

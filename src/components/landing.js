@@ -9,8 +9,8 @@ class LandingPage extends React.Component {
                 <h1 className="h2">Focus Timer</h1>
                 <p className="subtitle">A timer designed to keep you focused on what matters to you</p>
                 <div className="landing-fabs">
-                    <button className="fab-secondary"><img src={settings} className="regular-icon" alt="settings icon" />Start Pause (15min)</button>
-                    <button className="fab"><img src={settings} className="regular-icon" alt="settings icon" />Start Focus (1hr)<img src={settings} className="regular-icon" alt="settings icon" /></button>
+                    <button className="fab-secondary"><img src={settings}  alt="settings icon" />Start Pause (15min)</button>
+                    <button className="fab"><img src={settings}  alt="settings icon" />Start Focus (1hr)<img src={settings}  alt="settings icon" /></button>
 
                 </div>
             </div>

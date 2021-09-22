@@ -190,3 +190,12 @@ fieldset {
     justify-content: flex-end;
     gap: 8px;
 }
+
+.title-w-icon {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    & img {
+        align-self: center;
+    }
+}

@@ -1,4 +1,6 @@
 import React from "react";
+import pause from "../icons/pause.svg";
+import play from "../icons/play.svg";
 
 class Settings extends React.Component {
     render() {
@@ -9,7 +11,10 @@ class Settings extends React.Component {
 
                     <fieldset className="time-selectors">
                         <div>
-                            <p className="caption">Focus Time:</p>
+                            <div className="title-w-icon">
+                                <img src={play}  alt="play icon" />
+                                <p className="caption">Focus Time:</p>
+                            </div>
                             <label className="caption" htmlFor="focus-hour">HH
                                 <br />
                                 <input id="focus-hour" className="time-field" type="number" name="focus-hh" placeholder="00" />
@@ -24,7 +29,10 @@ class Settings extends React.Component {
                         <div className="vertical-divider"></div>
 
                         <div>
-                            <p className="caption">Break Time:</p>
+                            <div className="title-w-icon">
+                                <img src={pause}  alt="pause icon" />
+                                <p className="caption">Break Time:</p>
+                            </div>
                             <label className="caption" htmlFor="break-hour">HH
                                 <br />
                                 <input id="break-hour" className="time-field" type="number" name="break-hh" placeholder="00" />
@@ -41,11 +49,11 @@ class Settings extends React.Component {
                         <p className="caption">Timer type:</p>
                         <div className="radio-button">
                             <input type="radio" id="radio-focus" name="timer-type" value="focus" />
-                            <label htmlFor="radio-focus" className="body">Focus Timer</label><br />
+                            <label htmlFor="radio-focus" className="body radio-label">Focus Timer</label><br />
                         </div>
                         <div className="radio-button">
                             <input type="radio" id="radio-pomodoro" name="timer-type" value="pomodoro" />
-                            <label htmlFor="radio-pomodoro" className="body">Pomodoro Timer</label>
+                            <label htmlFor="radio-pomodoro" className="body radio-label">Pomodoro Timer</label>
                         </div>
                     </fieldset>
 
