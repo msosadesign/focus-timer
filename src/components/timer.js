@@ -1,5 +1,6 @@
 import { Component } from "react";
 import logo from '../logo.svg';
+import { BsPlayFill } from "react-icons/bs";
 
 class Timer extends Component {
     render() {
@@ -17,16 +18,7 @@ class Timer extends Component {
                     </q>
                     <p className="boldBody">– Theodore Roosevelt.</p>
 
-                    <button
-                        className="btn timer-btn"
-                    >
-                        Start Timer
-                    </button>
-                    {/* <button
-                        className="btn btn-outlined timer-btn"
-                    >
-                        Stop Timer
-                    </button> */}
+                    <button className="btn timer-btn"><BsPlayFill />Start Timer</button>
                 </div>
             </div>
         )

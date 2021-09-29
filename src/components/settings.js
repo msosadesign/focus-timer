@@ -1,6 +1,5 @@
 import React from "react";
-import pause from "../icons/pause.svg";
-import play from "../icons/play.svg";
+import { BsPlayFill, BsPauseFill } from "react-icons/bs";
 
 class Settings extends React.Component {
     render() {
@@ -12,7 +11,7 @@ class Settings extends React.Component {
                     <fieldset className="time-selectors">
                         <div>
                             <div className="title-w-icon">
-                                <img src={play}  alt="play icon" />
+                                <BsPlayFill />
                                 <p className="caption">Focus Time:</p>
                             </div>
                             <label className="caption" htmlFor="focus-hour">HH
@@ -30,7 +29,7 @@ class Settings extends React.Component {
 
                         <div>
                             <div className="title-w-icon">
-                                <img src={pause}  alt="pause icon" />
+                            <BsPauseFill />
                                 <p className="caption">Break Time:</p>
                             </div>
                             <label className="caption" htmlFor="break-hour">HH

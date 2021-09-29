@@ -15,7 +15,7 @@
     }
     &:active {
         box-shadow: none;
-        background-color: $primaryOverlay-pressed
+        background-color: $primaryOverlay-pressed;
     }
 }
 
@@ -37,12 +37,14 @@
     gap: 8px;
 
     transition: background-color 0.2s, box-shadow 0.2s;
-    & > img {
-        width: 24px;
-        height: 24px;
+    & :first-child  {
         color: $lightSurface;
-        padding: 2px;
     }
+}
+
+.btn-icon {
+    size: 20px;
+    color: $lightSurface;
 }
 
 .btn-outlined {

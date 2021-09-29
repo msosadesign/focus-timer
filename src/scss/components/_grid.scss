@@ -129,7 +129,7 @@ q,
     top: 16px;
     right: 16px;
     @include mq($break-md) {
-        right: 76px;
+        right: 32px;
         top: 32px;
     }
     @include mq($break-lg) {
@@ -195,7 +195,8 @@ fieldset {
     display: flex;
     flex-direction: row;
     gap: 8px;
-    & img {
+    & :first-child {
         align-self: center;
+        color: $darkSurface;
     }
 }

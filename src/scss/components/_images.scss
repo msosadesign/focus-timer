@@ -1,11 +1,16 @@
 body {
     background-image: url(../../images/background.jpg);
+
     background-position: center;
     background-size: cover;
     height: 100vh;
+
+    @include mq($break-xl) {
+        background-color: #4158d0;
+        background-image: linear-gradient(43deg, $lightSurface 0%, $darkSurface 46%, $colorPrimary 100%);
+    }
 }
 
 .landing {
     background-color: rgba(0, 0, 0, 0.7);
 }
-
