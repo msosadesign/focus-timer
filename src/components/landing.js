@@ -11,7 +11,6 @@ class LandingPage extends React.Component {
                 <div className="landing-fabs">
                     <button className="fab-secondary"><BsPauseFill className="btn-icon" />Start Pause (15min)</button>
                     <button className="fab"><BsPlayFill className="btn-icon" />Start Focus (1hr)</button>
-
                 </div>
             </div>
         )

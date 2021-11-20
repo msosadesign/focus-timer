@@ -82,3 +82,15 @@
         height: 48px;
     }
 }
+
+.settings-icon {
+    transition: color 0.1s;
+
+    &:hover {
+        color: $mediumSurface;
+        cursor: pointer;
+    }
+    &:active {
+        color: $primaryPressed;
+    }
+}
