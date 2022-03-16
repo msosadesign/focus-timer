@@ -57,8 +57,8 @@ class Settings extends React.Component {
                     </fieldset>
 
                     <div className="dialog-buttons">
-                        <button className="btn-text">Cancel</button>
-                        <input className="btn-text" type="submit" value="Save" />
+                        <button onClick={this.props.toggleSettingsVisibility} type="button" className="btn-text">Cancel</button>
+                        <input className="btn-text" type="button" value="Save" />
                     </div>
                 </form>
             </div>

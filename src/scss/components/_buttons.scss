@@ -2,10 +2,10 @@
     &:hover {
         box-shadow: $elevation-04;
     }
-    &:active {
-        box-shadow: $elevation-08;
-        background-color: $primaryPressed;
-    }
+        &:active {
+            box-shadow: $elevation-08;
+            background-color: $primaryPressed;
+        }
 }
 
 .btn-outlined-effects {

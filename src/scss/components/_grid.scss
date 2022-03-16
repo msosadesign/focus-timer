@@ -75,7 +75,7 @@ q,
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vw; //calc(100vw - 32px)
+    width: 100%; //calc(100vw - 32px)
     height: 100vh; //calc(100vh - 109px)
 
     position: absolute;
@@ -88,10 +88,7 @@ q,
 
     @include mq($break-xl) {
         padding: 0;
-        margin-top: -100px;
         justify-content: center;
-        width: 100vw;
-        height: calc(100vh + 100px);
     }
 }
 
@@ -157,8 +154,38 @@ fieldset {
     border: none;
 }
 
+.settings-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($color: #000000, $alpha: 0.32);
+
+    display: none; // use display: flex when showing
+}
+
+.timer-bg {
+    @extend .settings-container;
+    background-color: $darkSurface;
+    height: 100vh;
+    display: none; // use display: flex when showing
+}
+
+.display-flex {
+    display: flex;
+}
+
+.display-none {
+    display: none;
+}
+
 .settings {
     background-color: $lightSurface;
+
     color: $darkSurface;
     padding: 19px 14px 4px;
     border-radius: 4px;
