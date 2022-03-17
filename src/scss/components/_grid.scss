@@ -66,8 +66,16 @@ q,
     width: max-content;
     flex-direction: column;
     align-items: flex-end;
+    & > .h1 {
+        width: 218px;
+        text-align: left;
+    }
+    
     @include mq($break-lg) {
         flex-direction: row;
+        & > .h1 {
+            width: 216px;
+        }
     }
 }
 
@@ -174,6 +182,8 @@ fieldset {
     height: 100vh;
     display: none; // use display: flex when showing
 }
+
+
 
 .display-flex {
     display: flex;

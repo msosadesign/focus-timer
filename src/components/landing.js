@@ -8,7 +8,7 @@ class LandingPage extends React.Component {
         super(props);
         this.state = {
             settingsVisible: false,
-            timerVisible: false
+            timerVisible: true
         };
         this.toggleSettingsVisibility = this.toggleSettingsVisibility.bind(this)
     }
@@ -19,8 +19,8 @@ class LandingPage extends React.Component {
         return (
             <div className="landing">
                 <div className={`timer-bg ${this.state.timerVisible ? "display-flex" : "display-none"}`}><Timer /></div>
-                <div onClick={this.toggleSettingsVisibility} className={`settings-container ${this.state.settingsVisible ? "display-flex" : "display-none"}`}>
-                    <Settings toggleSettings={this.toggleSettingsVisibility} />
+                <div className={`settings-container ${this.state.settingsVisible ? "display-flex" : "display-none"}`}>
+                    <Settings toggleSettingsVisibility={this.toggleSettingsVisibility} />
                 </div>
                 <BsGearFill onClick={this.toggleSettingsVisibility} className="settings-icon" /><br></br>
                 <h1 className="h2">Focus Timer</h1>
