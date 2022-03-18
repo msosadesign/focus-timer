@@ -5,7 +5,33 @@ import { BsPlayFill } from "react-icons/bs";
 
 export default function Timer() {
     const [seconds, setSeconds] = useState(5);
-    const [minutes, setMinutes] = useState(25);
+    const [minutes, setMinutes] = useState(0);
+
+    const notifyMe = () => {
+        // Let's check if the browser supports notifications
+        if (!("Notification" in window)) {
+            alert("This browser does not support desktop notification");
+        }
+
+        // Let's check whether notification permissions have already been granted
+        else if (Notification.permission === "granted") {
+            // If it's okay let's create a notification
+            let notification = new Notification("Timer finished!");
+        }
+
+        // Otherwise, we need to ask the user for permission
+        else if (Notification.permission !== "denied") {
+            Notification.requestPermission().then(function (permission) {
+                // If the user accepts, let's create a notification
+                if (permission === "granted") {
+                    let notification = new Notification("Timer finished!");
+                }
+            });
+        }
+
+        // At last, if the user has denied notifications, and you
+        // want to be respectful there is no need to bother them any more.
+    }
 
     useEffect(() => {
         let interval = setInterval(() => {
@@ -16,7 +42,7 @@ export default function Timer() {
                     setSeconds(59)
                     setMinutes(minutes - 1)
                 } else {
-                    alert("Timer finished!")
+                    notifyMe();
                 }
             } else {
                 setSeconds(seconds - 1)
