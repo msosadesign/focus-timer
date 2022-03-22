@@ -176,14 +176,16 @@ fieldset {
     display: none; // use display: flex when showing
 }
 
-
-
 .display-flex {
     display: flex;
 }
 
 .display-none {
     display: none;
+}
+
+.display-inline {
+    display: inline;
 }
 
 .settings {

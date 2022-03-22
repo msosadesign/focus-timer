@@ -5,8 +5,15 @@ import { BsPlayFill, BsFillPauseFill } from "react-icons/bs";
 
 export default function Timer() {
     const [seconds, setSeconds] = useState(5);
-    const [minutes, setMinutes] = useState(50);
+    const [minutes, setMinutes] = useState(0);
     const [timerOn, setTimerOn] = useState(false);
+    const [extraSeconds, setExtraSeconds] = useState(0);
+    const [extraMinutes, setExtraMinutes] = useState(0);
+
+    const formatSeconds = seconds < 10 ? `0${seconds}` : seconds;
+    const formatMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    const formatExtraSeconds = extraSeconds < 10 ? `0${extraSeconds}` : extraSeconds;
+    const formatExtraMinutes = extraMinutes < 10 ? `0${extraMinutes}` : extraMinutes;
 
     const notifyMe = () => {
         // Let's check if the browser supports notifications
@@ -38,40 +45,66 @@ export default function Timer() {
 
     useEffect(() => {
         let interval = null;
+        let extraInterval = null;
 
         if (timerOn) {
+            clearInterval(extraInterval);
             interval = setInterval(() => {
                 clearInterval(interval);
 
-                if (seconds === 0) {
-                    if (minutes !== 0) {
-                        setSeconds(59)
-                        setMinutes(minutes - 1)
-                    } else {
-                        notifyMe();
+                if (extraSeconds === 0) {
+                    if (extraMinutes !== 0) {
+                        setExtraSeconds(59)
+                        setExtraMinutes(extraMinutes - 1)
                     }
                 } else {
-                    setSeconds(seconds - 1)
+                    setExtraSeconds(extraSeconds - 1)
+                }
+
+                 if (extraMinutes===0 && extraSeconds===0) {
+                    if (seconds === 0) {
+                        if (minutes !== 0) {
+                            setSeconds(59)
+                            setMinutes(minutes - 1)
+                        } else {
+                            notifyMe();
+                        }
+                    } else {
+                        setSeconds(seconds - 1)
+                    }
                 }
             }, 1000);
         } else {
             clearInterval(interval);
             // add code for extra time
+
+            extraInterval = setInterval(() => {
+                clearInterval(extraInterval);
+
+                setExtraSeconds(extraSeconds+1)
+                if(extraSeconds=== 59) {
+                    setExtraSeconds(0);
+                    setExtraMinutes(extraMinutes+1);
+                }
+
+            }, 1000);
         }
 
-        return () => { clearInterval(interval) }
+        return () => { 
+            clearInterval(interval)
+            clearInterval(extraInterval)
+         }
 
 
-    }, [minutes, seconds, timerOn]);
+    }, [extraMinutes, extraSeconds, minutes, seconds, timerOn]);
 
-    const formatSeconds = seconds < 10 ? `0${seconds}` : seconds;
-    const formatMinutes = minutes < 10 ? `0${minutes}` : minutes;
+
 
     return (
         <div className="timer time">
             <div className="timeCounter">
                 <h1 className="h1">{formatMinutes}:{formatSeconds}</h1>
-                <span className="extraTime">+12:24</span>
+                <span className={`extraTime ${extraMinutes ===0 && extraSeconds===0 ? "display-none" : "display-inline"}`}>+{formatExtraMinutes}:{formatExtraSeconds}</span>
             </div>
             <img src={logo} className="App-logo progress" alt="logo" /><br></br>
 
