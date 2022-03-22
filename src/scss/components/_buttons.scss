@@ -55,6 +55,11 @@
     color: $colorPrimary;
 }
 
+.btn-outlined-dark {
+    @extend .btn-outlined;
+    color: $lightSurface;
+}
+
 .btn-text {
     @extend .btn-outlined;
     border: none;

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import logo from '../logo.svg';
-import { BsPlayFill } from "react-icons/bs";
+import { BsPlayFill, BsFillPauseFill } from "react-icons/bs";
 
 
 export default function Timer() {
     const [seconds, setSeconds] = useState(5);
-    const [minutes, setMinutes] = useState(0);
+    const [minutes, setMinutes] = useState(50);
+    const [timerOn, setTimerOn] = useState(false);
 
     const notifyMe = () => {
         // Let's check if the browser supports notifications
@@ -17,6 +18,8 @@ export default function Timer() {
         else if (Notification.permission === "granted") {
             // If it's okay let's create a notification
             let notification = new Notification("Timer finished!");
+            // let audio = new Audio('276607__mickleness__ringtone-foofaraw.mp3');
+            // audio.play();
         }
 
         // Otherwise, we need to ask the user for permission
@@ -34,22 +37,32 @@ export default function Timer() {
     }
 
     useEffect(() => {
-        let interval = setInterval(() => {
-            clearInterval(interval);
+        let interval = null;
 
-            if (seconds === 0) {
-                if (minutes !== 0) {
-                    setSeconds(59)
-                    setMinutes(minutes - 1)
+        if (timerOn) {
+            interval = setInterval(() => {
+                clearInterval(interval);
+
+                if (seconds === 0) {
+                    if (minutes !== 0) {
+                        setSeconds(59)
+                        setMinutes(minutes - 1)
+                    } else {
+                        notifyMe();
+                    }
                 } else {
-                    notifyMe();
+                    setSeconds(seconds - 1)
                 }
-            } else {
-                setSeconds(seconds - 1)
-            }
-        }, 1000);
+            }, 1000);
+        } else {
+            clearInterval(interval);
+            // add code for extra time
+        }
 
-    }, [seconds, minutes]);
+        return () => { clearInterval(interval) }
+
+
+    }, [minutes, seconds, timerOn]);
 
     const formatSeconds = seconds < 10 ? `0${seconds}` : seconds;
     const formatMinutes = minutes < 10 ? `0${minutes}` : minutes;
@@ -68,10 +81,9 @@ export default function Timer() {
                 </q>
                 <p className="boldBody">– Theodore Roosevelt.</p>
 
-                <button className="btn timer-btn"><BsPlayFill />Start Timer</button>
+                <button onClick={() => setTimerOn(true)} className={`btn timer-btn ${timerOn ? "display-none" : "display-flex"}`}><BsPlayFill />Start Timer</button>
+                <button onClick={() => setTimerOn(false)} className={`btn-outlined-dark timer-btn ${timerOn ? "display-flex" : "display-none"}`}><BsFillPauseFill />Stop Timer</button>
             </div>
         </div>
     );
 }
-
-// export default Timer;
