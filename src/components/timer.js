@@ -104,7 +104,7 @@ export default function Timer() {
         <div className="timer time">
             <div className="timeCounter">
                 <h1 className="h1">{formatMinutes}:{formatSeconds}</h1>
-                <span className={`extraTime ${extraMinutes ===0 && extraSeconds===0 ? "display-none" : "display-inline"}`}>+{formatExtraMinutes}:{formatExtraSeconds}</span>
+                <span className={`extraTime ${timerOn ? "extraTime-ticking" :"" } ${extraMinutes ===0 && extraSeconds===0 ? "display-none" : "display-inline"}`}>+{formatExtraMinutes}:{formatExtraSeconds}</span>
             </div>
             <img src={logo} className="App-logo progress" alt="logo" /><br></br>
 

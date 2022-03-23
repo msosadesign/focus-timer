@@ -8,7 +8,7 @@ class LandingPage extends React.Component {
         super(props);
         this.state = {
             settingsVisible: false,
-            timerVisible: true
+            timerVisible: false
         };
         this.toggleSettingsVisibility = this.toggleSettingsVisibility.bind(this)
     }
