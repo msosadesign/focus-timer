@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import logo from '../logo.svg';
-import { BsPlayFill, BsFillPauseFill } from "react-icons/bs";
+import { BsPlayFill, BsFillPauseFill, BsGearFill } from "react-icons/bs";
+import Settings from './settings'
 
 
 export default function Timer() {
@@ -9,6 +10,7 @@ export default function Timer() {
     const [timerOn, setTimerOn] = useState(false);
     const [extraSeconds, setExtraSeconds] = useState(0);
     const [extraMinutes, setExtraMinutes] = useState(0);
+    const [settingsVisible, setSettingsVisibility] = useState(false);
 
     const formatSeconds = seconds < 10 ? `0${seconds}` : seconds;
     const formatMinutes = minutes < 10 ? `0${minutes}` : minutes;
@@ -61,7 +63,7 @@ export default function Timer() {
                     setExtraSeconds(extraSeconds - 1)
                 }
 
-                 if (extraMinutes===0 && extraSeconds===0) {
+                if (extraMinutes === 0 && extraSeconds === 0) {
                     if (seconds === 0) {
                         if (minutes !== 0) {
                             setSeconds(59)
@@ -81,30 +83,30 @@ export default function Timer() {
             extraInterval = setInterval(() => {
                 clearInterval(extraInterval);
 
-                setExtraSeconds(extraSeconds+1)
-                if(extraSeconds=== 59) {
+                setExtraSeconds(extraSeconds + 1)
+                if (extraSeconds === 59) {
                     setExtraSeconds(0);
-                    setExtraMinutes(extraMinutes+1);
+                    setExtraMinutes(extraMinutes + 1);
                 }
 
             }, 1000);
         }
 
-        return () => { 
+        return () => {
             clearInterval(interval)
             clearInterval(extraInterval)
-         }
+        }
 
 
     }, [extraMinutes, extraSeconds, minutes, seconds, timerOn]);
 
-
-
     return (
         <div className="timer time">
+            
+
             <div className="timeCounter">
                 <h1 className="h1">{formatMinutes}:{formatSeconds}</h1>
-                <span className={`extraTime ${timerOn ? "extraTime-ticking" :"" } ${extraMinutes ===0 && extraSeconds===0 ? "display-none" : "display-inline"}`}>+{formatExtraMinutes}:{formatExtraSeconds}</span>
+                <span className={`extraTime ${timerOn ? "extraTime-ticking" : ""} ${extraMinutes === 0 && extraSeconds === 0 ? "display-none" : "display-inline"}`}>+{formatExtraMinutes}:{formatExtraSeconds}</span>
             </div>
             <img src={logo} className="App-logo progress" alt="logo" /><br></br>
 
@@ -117,6 +119,10 @@ export default function Timer() {
                 <button onClick={() => setTimerOn(true)} className={`btn timer-btn ${timerOn ? "display-none" : "display-flex"}`}><BsPlayFill />Start Timer</button>
                 <button onClick={() => setTimerOn(false)} className={`btn-outlined-dark timer-btn ${timerOn ? "display-flex" : "display-none"}`}><BsFillPauseFill />Stop Timer</button>
             </div>
+            <div className={`settings-container ${settingsVisible ? "display-flex" : "display-none"}`}>
+                <Settings toggleSettingsVisibility={() => { setSettingsVisibility(false) }} />
+            </div>
+            <BsGearFill onClick={() => { setSettingsVisibility(!settingsVisible) }} className="settings-icon" /><br></br>
         </div>
     );
 }
