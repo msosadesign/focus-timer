@@ -1,4 +1,4 @@
-body {
+.main-div {
     min-height: 100vh;
     background-color: $darkSurface;
     display: flex;
@@ -56,64 +56,14 @@ q,
         width: auto;
     }
 }
-
-.fab {
-    width: auto;
-}
-
 .timeCounter {
     display: flex;
     width: max-content;
     flex-direction: column;
     align-items: flex-end;
-    
+
     @include mq($break-lg) {
         flex-direction: row;
-    }
-}
-
-.landing {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; //calc(100vw - 32px)
-    height: 100vh; //calc(100vh - 109px)
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    padding: 16px;
-    padding-top: 93px;
-    color: $lightSurface;
-
-    @include mq($break-xl) {
-        padding: 0;
-        justify-content: center;
-    }
-}
-
-.landing-fabs {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    position: absolute;
-    gap: 24px;
-    bottom: 16px;
-    right: 16px;
-    @include mq($break-md) {
-        bottom: 32px;
-        right: 32px;
-    }
-    @include mq($break-lg) {
-        right: 76px;
-    }
-    @include mq($break-xl) {
-        flex-direction: row;
-        position: relative;
-        margin-top: 62px;
-        bottom: 0;
-        right: 0;
     }
 }
 
@@ -170,13 +120,6 @@ fieldset {
     display: none; // use display: flex when showing
 }
 
-.timer-bg {
-    @extend .settings-container;
-    background-color: $darkSurface;
-    height: 100vh;
-    display: none; // use display: flex when showing
-}
-
 .display-flex {
     display: flex;
 }
@@ -196,14 +139,18 @@ fieldset {
 
 .settings {
     background-color: $lightSurface;
-
+    position: absolute;
+    top: 56px;
+    right: 8px;
+    text-align: left;
     color: $darkSurface;
-    padding: 19px 14px 4px;
+    padding: 8px 16px 16px;
     border-radius: 4px;
     box-shadow: $elevation-06;
     & .time-selectors {
         display: flex;
         align-items: flex-end;
+        padding: 0;
     }
     & label {
         display: inline-block;
@@ -212,6 +159,23 @@ fieldset {
         @extend .buttonText;
         margin-left: 8px;
         margin-right: 8px;
+    }
+
+    @include mq($break-sm) {
+        top: 56px;
+        right: 16px;
+    }
+    @include mq($break-md) {
+        top: 72px;
+        right: 32px;
+    }
+    @include mq($break-lg) {
+        top: 72px;
+        right: 76px;
+    }
+    @include mq($break-xl) {
+        top: 172px;
+        right: 15%;
     }
 }
 

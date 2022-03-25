@@ -66,28 +66,6 @@
     color: $colorPrimary;
 }
 
-.fab {
-    @extend .btn;
-    border-radius: 30px;
-    box-shadow: $elevation-06;
-    @include mq($break-xl) {
-        border-radius: 3px;
-        box-shadow: none;
-    }
-}
-
-.fab-secondary {
-    @extend .fab;
-    @extend .btn-outlined-effects;
-    background-color: transparent;
-    border: 2px solid $colorPrimary;
-    height: 40px;
-    box-shadow: none;
-    @include mq($break-xl) {
-        height: 48px;
-    }
-}
-
 .settings-icon {
     transition: color 0.1s;
 
