@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import logo from "../logo.svg";
+import brain from "../icons/brain.svg";
+import coffee from "../icons/drink-coffee.svg";
 import { BsPlayFill, BsFillPauseFill, BsGearFill } from "react-icons/bs";
 import Settings from "./settings";
 
@@ -146,22 +147,31 @@ export default function Timer() {
 
   return (
     <div
-      className="main-div"
-      onClick={(e) => {
-        if (
-          !e.nativeEvent.path.some(
-            (element) =>
-              element === document.getElementsByClassName("settings")[0]
-          ) &&
-          !e.nativeEvent.path.some(
-            (element) =>
-              element === document.getElementsByClassName("settings-icon")[0]
-          )
-        )
-          setSettingsVisibility(false);
+      className={`main-div${
+        timerStatus === "standbyFocus" ? " standby-focus-bg" : ""
+      } ${timerStatus === "activeBreak" ? " active-break-bg" : ""}`}
+      onClick={() => {
+        // if (
+        //   !e.nativeEvent.path.some(
+        //     (element) =>
+        //       element === document.getElementsByClassName("settings")[0]
+        //   ) &&
+        //   !e.nativeEvent.path.some(
+        //     (element) =>
+        //       element === document.getElementsByClassName("settings-icon")[0]
+        //   )
+        // )
+
+        setSettingsVisibility(false);
       }}
     >
-      <div className="timer time">
+      <div
+        className={`timer time ${
+          timerStatus === "activeBreak"
+            ? "color-darkSurface"
+            : "color-lightSurface"
+        }`}
+      >
         <div className="timeCounter">
           <h1 className="h1">
             {formatMinutes}:{formatSeconds}
@@ -178,7 +188,26 @@ export default function Timer() {
             +{formatExtraMinutes}:{formatExtraSeconds}
           </span>
         </div>
-        <img src={logo} className="App-logo progress" alt="logo" />
+        <img
+          src={brain}
+          className={`main-image progress ${
+            timerStatus === "standbyBreak" ||
+            timerStatus === "activeFocus" ||
+            timerStatus === "notStarted" ||
+            timerStatus === "paused" ||
+            timerStatus === "standbyFocus"
+              ? " display-block"
+              : "display-none"
+          }`}
+          alt="logo"
+        />
+        <img
+          src={coffee}
+          className={`main-image progress ${
+            timerStatus === "activeBreak" ? " display-block" : "display-none"
+          }`}
+          alt="logo"
+        />
         <br></br>
 
         <div className="quote">
@@ -192,7 +221,9 @@ export default function Timer() {
               setTimerStatus("activeBreak");
             }}
             className={`btn timer-btn ${
-              timerStatus === "standbyFocus" ? "display-flex" : "display-none"
+              timerStatus === "standbyFocus"
+                ? "display-flex background-color-darkSurface"
+                : "display-none"
             }`}
           >
             <BsPlayFill className="btn-icon" />
@@ -254,8 +285,10 @@ export default function Timer() {
           />
         </div>
         <BsGearFill
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation()
             setSettingsVisibility(!settingsVisible);
+
           }}
           className="settings-icon"
         />

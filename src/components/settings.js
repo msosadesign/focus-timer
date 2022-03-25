@@ -5,6 +5,8 @@ class Settings extends React.Component {
   render() {
     return (
       <div
+      onClick={(e) => e.stopPropagation()}
+
         className={`settings ${
           this.props.settingsVisible ? "display-flex" : "display-none"
         }`}

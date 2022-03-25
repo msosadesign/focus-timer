@@ -1,4 +1,6 @@
 .main-div {
+    transition: background-color 0.4s;
+
     min-height: 100vh;
     background-color: $darkSurface;
     display: flex;
@@ -11,7 +13,6 @@
     flex-direction: column;
     align-items: center;
     max-width: 268px;
-    color: white;
     text-align: center;
 
     @include mq($break-lg) {
@@ -24,6 +25,27 @@
             "time time"
             "progress quote";
     }
+}
+
+.standby-focus-bg {
+    // background-image: linear-gradient(180deg, #6e44ff 0%, #403f4c 100%);
+    background-color: $colorPrimary;
+}
+
+.active-break-bg {
+    background-color: $mediumSurface;
+}
+
+.color-darkSurface {
+    color: $darkSurface;
+}
+
+.background-color-darkSurface {
+    background-color: $darkSurface;
+}
+
+.color-lightSurface {
+    color: $lightSurface;
 }
 
 .time {
@@ -43,10 +65,9 @@ q,
     width: 100%;
 }
 
-.App-logo {
+.main-image {
     width: 238px;
     max-height: 238px;
-    pointer-events: none;
 }
 
 .timer-btn {
@@ -105,27 +126,16 @@ fieldset {
     border: none;
 }
 
-.settings-container {
-    position: absolute;
-    text-align: left;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    height: 100vh;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba($color: #000000, $alpha: 0.32);
-
-    display: none; // use display: flex when showing
-}
-
 .display-flex {
     display: flex;
 }
 
 .display-none {
     display: none;
+}
+
+.display-block {
+    display: block;
 }
 
 .display-inline {
