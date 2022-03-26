@@ -5,7 +5,7 @@ import { BsPlayFill, BsFillPauseFill, BsGearFill } from "react-icons/bs";
 import Settings from "./settings";
 
 export default function Timer() {
-  const [definedFocusMinutes, setDefinedFocusMinutes] = useState(10);
+  const [definedFocusMinutes, setDefinedFocusMinutes] = useState(25);
   const [definedBreakMinutes, setDefinedBreakMinutes] = useState(5);
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -13,6 +13,10 @@ export default function Timer() {
   const [extraMinutes, setExtraMinutes] = useState(0);
   const [settingsVisible, setSettingsVisibility] = useState(false);
   const [timerStatus, setTimerStatus] = useState("notStarted"); // standbyFocus, activeFocus, activeBreak, paused, standbyBreak
+  const [quote, setQuote] = useState(
+    "Do what you can, with what you have, where you are"
+  );
+  const [quoteAuthor, setQuoteAuthor] = useState("Theodore Roosevelt");
 
   const formatNumber = (number) => {
     if (number < 10) {
@@ -39,9 +43,7 @@ export default function Timer() {
     extraSeconds === 0 &&
     timerStatus === "activeBreak";
 
-  const setDefinedValues = () => setMinutes(definedFocusMinutes);
-
-  const notifyMe = () => {
+  const notifyMe = (message) => {
     // Let's check if the browser supports notifications
     if (!("Notification" in window)) {
       alert("This browser does not support desktop notification");
@@ -50,7 +52,7 @@ export default function Timer() {
     // Let's check whether notification permissions have already been granted
     else if (Notification.permission === "granted") {
       // If it's okay let's create a notification
-      let notification = new Notification("Timer finished!");
+      new Notification(message);
       // let audio = new Audio('276607__mickleness__ringtone-foofaraw.mp3');
       // audio.play();
     }
@@ -60,7 +62,7 @@ export default function Timer() {
       Notification.requestPermission().then(function (permission) {
         // If the user accepts, let's create a notification
         if (permission === "granted") {
-          let notification = new Notification("Timer finished!");
+          new Notification(message);
         }
       });
     }
@@ -68,6 +70,35 @@ export default function Timer() {
     // At last, if the user has denied notifications, and you
     // want to be respectful there is no need to bother them any more.
   };
+
+  useEffect(() => {
+    if (Notification.permission === "default") {
+      notifyMe("This is how you will be notified");
+    }
+
+    if (localStorage.getItem("definedFocusMinutes")) {
+      setDefinedFocusMinutes(+localStorage.getItem("definedFocusMinutes"));
+    } else {
+      setDefinedFocusMinutes(25);
+    }
+
+    if (localStorage.getItem("definedBreakMinutes")) {
+      setDefinedBreakMinutes(+localStorage.getItem("definedBreakMinutes"));
+    } else {
+      setDefinedBreakMinutes(5);
+    }
+
+    fetch("https://type.fit/api/quotes")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        const i = Math.floor(Math.random() * data.length);
+        setQuote(data[i].text);
+        setQuoteAuthor(data[i].author)
+        console.log(data);
+      });
+  }, []);
 
   useEffect(() => {
     let interval = null;
@@ -92,8 +123,6 @@ export default function Timer() {
             if (minutes !== 0) {
               setSeconds(59);
               setMinutes(minutes - 1);
-            } else {
-              notifyMe();
             }
           } else {
             setSeconds(seconds - 1);
@@ -118,9 +147,11 @@ export default function Timer() {
 
     if (focusFinished) {
       setTimerStatus("standbyFocus");
+      notifyMe("Work finished!");
     }
     if (breakFinished) {
       setTimerStatus("standbyBreak");
+      notifyMe("Break finished!");
     }
 
     return () => {
@@ -143,6 +174,9 @@ export default function Timer() {
     } else if (timerStatus === "standbyBreak" || timerStatus === "notStarted") {
       setMinutes(definedFocusMinutes);
     }
+
+    localStorage.setItem("definedFocusMinutes", definedFocusMinutes);
+    localStorage.setItem("definedBreakMinutes", definedBreakMinutes);
   }, [timerStatus, definedBreakMinutes, definedFocusMinutes]);
 
   return (
@@ -151,17 +185,6 @@ export default function Timer() {
         timerStatus === "standbyFocus" ? " standby-focus-bg" : ""
       } ${timerStatus === "activeBreak" ? " active-break-bg" : ""}`}
       onClick={() => {
-        // if (
-        //   !e.nativeEvent.path.some(
-        //     (element) =>
-        //       element === document.getElementsByClassName("settings")[0]
-        //   ) &&
-        //   !e.nativeEvent.path.some(
-        //     (element) =>
-        //       element === document.getElementsByClassName("settings-icon")[0]
-        //   )
-        // )
-
         setSettingsVisibility(false);
       }}
     >
@@ -211,10 +234,8 @@ export default function Timer() {
         <br></br>
 
         <div className="quote">
-          <q className="subtitle">
-            Do what you can, with what you have, where you are.
-          </q>
-          <p className="boldBody">– Theodore Roosevelt.</p>
+          <q className="subtitle">{`${quote}.`}</q>
+          <p className="boldBody">{`– ${quoteAuthor}.`}</p>
           <button
             onClick={() => {
               setMinutes(definedBreakMinutes);
@@ -240,7 +261,7 @@ export default function Timer() {
           </button>
           <button
             onClick={() => {
-              setDefinedValues();
+              setMinutes(definedFocusMinutes);
               setTimerStatus("activeFocus");
             }}
             className={`btn timer-btn ${
@@ -249,8 +270,7 @@ export default function Timer() {
           >
             <BsPlayFill className="btn-icon" />
             Start timer
-          </button>{" "}
-          {/* Start timer after break */}
+          </button>
           <button
             onClick={() => setTimerStatus("activeFocus")}
             className={`btn timer-btn ${
@@ -286,9 +306,8 @@ export default function Timer() {
         </div>
         <BsGearFill
           onClick={(e) => {
-            e.stopPropagation()
+            e.stopPropagation();
             setSettingsVisibility(!settingsVisible);
-
           }}
           className="settings-icon"
         />

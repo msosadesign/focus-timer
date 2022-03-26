@@ -5,13 +5,11 @@ class Settings extends React.Component {
   render() {
     return (
       <div
-      onClick={(e) => e.stopPropagation()}
-
+        onClick={(e) => e.stopPropagation()}
         className={`settings ${
           this.props.settingsVisible ? "display-flex" : "display-none"
         }`}
       >
-        {/* <h1 className="subtitle">Settings</h1> */}
         <form>
           <fieldset className="time-selectors">
             <div>
@@ -19,22 +17,6 @@ class Settings extends React.Component {
                 <BsPlayFill />
                 <p className="caption">Focus Time:</p>
               </div>
-              {/* <label className="caption" htmlFor="focus-hour">
-                HH
-                <br />
-                <input
-                  disabled={this.props.timerStatus === "activeFocus"}
-                  id="focus-hour"
-                  className="time-field"
-                  type="number"
-                  name="focus-hh"
-                  placeholder="00"
-                  // onInput={(e) =>
-                  //   this.props.setDefinedFocusMinutes(+e.target.value * 60)
-                  // }
-                />
-              </label>
-              <span className="time-divider">:</span> */}
               <label className="caption" htmlFor="focus-min">
                 Minutes
                 <br />
@@ -49,7 +31,9 @@ class Settings extends React.Component {
                   name="focus-mm"
                   placeholder="00"
                   value={this.props.definedFocusMinutes}
+                  min="1"
                   onInput={(e) => {
+                    e.target.value = Math.floor(e.target.value)
                     this.props.setDefinedFocusMinutes(+e.target.value);
                     if (
                       this.props.timerStatus === "standbyBreak" ||
@@ -69,19 +53,6 @@ class Settings extends React.Component {
                 <BsPauseFill />
                 <p className="caption">Break Time:</p>
               </div>
-              {/* <label className="caption" htmlFor="break-hour">
-                HH
-                <br />
-                <input
-                  disabled={this.props.timerStatus === "activeBreak"}
-                  id="break-hour"
-                  className="time-field"
-                  type="number"
-                  name="break-hh"
-                  placeholder={"00"}
-                />
-              </label>
-              <span className="time-divider">:</span> */}
               <label className="caption" htmlFor="break-min">
                 Minutes
                 <br />
@@ -91,9 +62,11 @@ class Settings extends React.Component {
                   className="time-field"
                   type="number"
                   name="break-mm"
+                  min="1"
                   placeholder="00"
                   value={this.props.definedBreakMinutes}
                   onInput={(e) => {
+                    e.target.value = Math.floor(e.target.value)
                     this.props.setDefinedBreakMinutes(+e.target.value);
                     if (this.props.timerStatus === "standbyFocus") {
                       this.props.setMinutes(+e.target.value);
@@ -104,41 +77,7 @@ class Settings extends React.Component {
             </div>
           </fieldset>
 
-          {/* <fieldset>
-            <p className="caption">Timer type:</p>
-            <div className="radio-button">
-              <input
-                type="radio"
-                id="radio-focus"
-                name="timer-type"
-                value="focus"
-              />
-              <label htmlFor="radio-focus" className="body radio-label">
-                Focus Timer
-              </label>
-              <br />
-            </div>
-            <div className="radio-button">
-              <input
-                type="radio"
-                id="radio-pomodoro"
-                name="timer-type"
-                value="pomodoro"
-              />
-              <label htmlFor="radio-pomodoro" className="body radio-label">
-                Pomodoro Timer
-              </label>
-            </div>
-          </fieldset> */}
-
           <div className="dialog-buttons">
-            {/* <button
-              onClick={this.props.toggleSettingsVisibility}
-              type="button"
-              className="btn-text"
-            >
-              Close
-            </button> */}
           </div>
         </form>
       </div>
