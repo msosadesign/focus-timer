@@ -1,6 +1,5 @@
 .main-div {
     transition: background-color 0.4s;
-
     min-height: 100vh;
     background-color: $darkSurface;
     display: flex;
@@ -16,7 +15,7 @@
     text-align: center;
 
     @include mq($break-lg) {
-        max-width: none;
+        max-width: 780px;
         display: grid;
         grid-template-columns: 260px auto;
         grid-template-rows: auto auto;

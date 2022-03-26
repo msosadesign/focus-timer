@@ -96,7 +96,10 @@ export default function Timer() {
         const i = Math.floor(Math.random() * data.length);
         setQuote(data[i].text);
         setQuoteAuthor(data[i].author)
-        console.log(data);
+      })
+      .catch(e=> {
+        // console.log(e);
+        console.error(e);
       });
   }, []);
 
