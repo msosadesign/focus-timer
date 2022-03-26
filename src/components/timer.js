@@ -98,7 +98,6 @@ export default function Timer() {
         setQuoteAuthor(data[i].author)
       })
       .catch(e=> {
-        // console.log(e);
         console.error(e);
       });
   }, []);
