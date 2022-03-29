@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/focus-timer/static/css/main.40381606.chunk.css",
+    "main.js": "/focus-timer/static/js/main.c642744a.chunk.js",
+    "main.js.map": "/focus-timer/static/js/main.c642744a.chunk.js.map",
+    "runtime-main.js": "/focus-timer/static/js/runtime-main.ee6cee42.js",
+    "runtime-main.js.map": "/focus-timer/static/js/runtime-main.ee6cee42.js.map",
+    "static/js/2.4fa9778a.chunk.js": "/focus-timer/static/js/2.4fa9778a.chunk.js",
+    "static/js/2.4fa9778a.chunk.js.map": "/focus-timer/static/js/2.4fa9778a.chunk.js.map",
+    "static/js/3.3d7f6752.chunk.js": "/focus-timer/static/js/3.3d7f6752.chunk.js",
+    "static/js/3.3d7f6752.chunk.js.map": "/focus-timer/static/js/3.3d7f6752.chunk.js.map",
+    "index.html": "/focus-timer/index.html",
+    "static/css/main.40381606.chunk.css.map": "/focus-timer/static/css/main.40381606.chunk.css.map",
+    "static/js/2.4fa9778a.chunk.js.LICENSE.txt": "/focus-timer/static/js/2.4fa9778a.chunk.js.LICENSE.txt",
+    "static/media/brain.c4b918ca.svg": "/focus-timer/static/media/brain.c4b918ca.svg",
+    "static/media/drink-coffee.bfe5a970.svg": "/focus-timer/static/media/drink-coffee.bfe5a970.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ee6cee42.js",
+    "static/js/2.4fa9778a.chunk.js",
+    "static/css/main.40381606.chunk.css",
+    "static/js/main.c642744a.chunk.js"
+  ]
+}
