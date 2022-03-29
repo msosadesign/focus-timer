@@ -33,7 +33,7 @@ class Settings extends React.Component {
                   value={this.props.definedFocusMinutes}
                   min="1"
                   onInput={(e) => {
-                    e.target.value = Math.floor(e.target.value)
+                    e.target.value = Math.floor(e.target.value);
                     this.props.setDefinedFocusMinutes(+e.target.value);
                     if (
                       this.props.timerStatus === "standbyBreak" ||
@@ -66,7 +66,7 @@ class Settings extends React.Component {
                   placeholder="00"
                   value={this.props.definedBreakMinutes}
                   onInput={(e) => {
-                    e.target.value = Math.floor(e.target.value)
+                    e.target.value = Math.floor(e.target.value);
                     this.props.setDefinedBreakMinutes(+e.target.value);
                     if (this.props.timerStatus === "standbyFocus") {
                       this.props.setMinutes(+e.target.value);
@@ -77,8 +77,7 @@ class Settings extends React.Component {
             </div>
           </fieldset>
 
-          <div className="dialog-buttons">
-          </div>
+          <div className="dialog-buttons"></div>
         </form>
       </div>
     );
