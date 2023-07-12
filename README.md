@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+# Focus Timer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a timer with a focus on productivity, based on the pomodoro technique and tweaked for a different user experience.
 
-## Available Scripts
+Link: https://msosadesign.github.io/focus-timer/
 
-In the project directory, you can run:
+Technologies used:
+- HTML/CSS
+- SASS
+- Javascript
+- React
 
-### `npm start`
+The main objective of this timer is maximizing focus. When a person uses the pomodoro technique, oftentimes it's necessary to take pause the timer before it ends, either because of something necessary or just a distraction. The timer takes this into consideration and allows to pause but, any wasted time is added to the timer; this allows to stop the time in case anything important comes up while discouraging from any unnecessary distractions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![image](https://github.com/msosadesign/focus-timer/assets/59977013/cadb9525-e6b1-427c-91bc-99f1f826a4cd)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The timer also uses colors to indicate state, a dark background means it's time to focus, while the white background indicates a moment to relax.
 
-### `npm test`
+![image](https://github.com/msosadesign/focus-timer/assets/59977013/d7c74815-b789-494e-af01-4f08ff42010c)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This app was written with react, and sass for the styles. The current time and phase of the timer (focus/relax) is saved in the state. Also, I used an API to fetch random motivational phrases. The website uses notifications when the timer ends and is fully responsive.
