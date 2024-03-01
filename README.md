@@ -2,7 +2,7 @@
 
 This is a timer with a focus on productivity, based on the pomodoro technique and tweaked for a different user experience.
 
-Link: https://msosadesign.github.io/focus-timer/
+[Live Website](https://msosadesign.github.io/focus-timer/)
 
 Technologies used:
 - HTML/CSS
